@@ -24,7 +24,7 @@ public class UserStorageImpl implements UserStorage {
     @Override
     public User create(User user) throws ValidationException {
 
-        String sql = "insert into filmorate.users(email, login, name, birthday) " +
+        String sql = "insert into librarian.users(email, login, name, birthday) " +
                 "values(?,?,?,?)";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -45,7 +45,7 @@ public class UserStorageImpl implements UserStorage {
 
     @Override
     public User update(User user) {
-        String sql = "update filmorate.users set user_id = ?, email = ?, " +
+        String sql = "update librarian.users set user_id = ?, email = ?, " +
                 "login = ?, name = ?, birthday = ?";
         jdbcTemplate.update(sql, user.getId(), user.getEmail(),
                 user.getLogin(), user.getName(), user.getBirthday());
@@ -54,19 +54,19 @@ public class UserStorageImpl implements UserStorage {
 
     @Override
     public List<User> findAll() {
-        String sql = "select * from filmorate.users";
+        String sql = "select * from librarian.users";
         return jdbcTemplate.query(sql, this::mapRowToUser);
     }
 
     @Override
     public User findUserById(Long id) {
 
-        final String sql = "select * from filmorate.users where USER_ID = ?";
+        final String sql = "select * from librarian.users where USER_ID = ?";
         return jdbcTemplate.queryForObject(sql, this::mapRowToUser, id);
     }
 
     public void addFriend(Long userId, Long friendId) {
-        String sql = "insert into filmorate.friendship_user_to_user_link(USER_ID, friend_id) " +
+        String sql = "insert into librarian.friendship_user_to_user_link(USER_ID, friend_id) " +
                 "values(?,?)";
 
         jdbcTemplate.update(connection -> {
@@ -80,9 +80,9 @@ public class UserStorageImpl implements UserStorage {
     @Override
     public List<User> findFriends(Long userId) {
         final String sql = "select * " +
-                "from filmorate.users as u " +
+                "from librarian.users as u " +
                 "where u.USER_ID in (select f.friend_id " +
-                "from filmorate.friendship_user_to_user_link as f " +
+                "from librarian.friendship_user_to_user_link as f " +
                 "where f.user_id = ?);";
 
         return jdbcTemplate.query(sql, this::mapRowToUser, userId);
@@ -90,19 +90,19 @@ public class UserStorageImpl implements UserStorage {
 
     public List<User> findCommonFriends(Long userId, Long otherUserId) {
         final String sql = "select * " +
-                "from filmorate.users as u " +
+                "from librarian.users as u " +
                 "where u.USER_ID in (select f.friend_id " +
-                "from filmorate.friendship_user_to_user_link as f " +
+                "from librarian.friendship_user_to_user_link as f " +
                 "where f.user_id = ? " +
                 "and f.friend_id in (select f1.friend_id " +
-                "from filmorate.friendship_user_to_user_link as f1 " +
+                "from librarian.friendship_user_to_user_link as f1 " +
                 "where f1.user_id = ? ));";
 
         return jdbcTemplate.query(sql, this::mapRowToUser, userId, otherUserId);
     }
 
     public User removeFriend(Long userId, Long friendId) {
-        final String sql = "delete from filmorate.friendship_user_to_user_link " +
+        final String sql = "delete from librarian.friendship_user_to_user_link " +
                 "where user_id = ? and friend_id = ?";
         jdbcTemplate.update(sql, userId, friendId);
         return findUserById(userId);
@@ -110,7 +110,7 @@ public class UserStorageImpl implements UserStorage {
 
     @Override
     public void checkUserExistence(Long id) {
-        final String sql = "select COUNT(USER_ID) from filmorate.users where USER_ID = ?";
+        final String sql = "select COUNT(USER_ID) from librarian.users where USER_ID = ?";
         Integer count = jdbcTemplate.queryForObject(sql, Integer.class, id);
         if (count == null || count == 0) {
             throw new EntityNotFoundException("User with id \"" + id + "\" not found.");
