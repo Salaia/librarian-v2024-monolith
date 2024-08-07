@@ -26,7 +26,10 @@ public class User {
     @NotEmpty(message = "Login may not be empty!")
     String login;
 
-    // if empty, name = login
+    // Была мысль написать рандомайзер, предлагающий варианты логина
+    // Это дело бэка, а не фронта, потому что проверять бы на уникальность,
+    // прежде чем предлагать юзеру
+    @NotEmpty(message = "Name may not be empty!")
     String name;
 
     @Past(message = "Birth date may not be in future!")

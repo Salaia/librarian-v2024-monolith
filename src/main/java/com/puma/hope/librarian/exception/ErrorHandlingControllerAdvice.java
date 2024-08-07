@@ -1,7 +1,6 @@
 package com.puma.hope.librarian.exception;
 
 import jakarta.validation.ConstraintViolationException;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -50,9 +49,9 @@ public class ErrorHandlingControllerAdvice {
         return new ErrorResponseCustom(exception.getMessage());
     }
 
-    @ExceptionHandler(ChangeSetPersister.NotFoundException.class)
+    @ExceptionHandler(EntityNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorResponseCustom handleNotFoundException(final ChangeSetPersister.NotFoundException exception) {
+    public ErrorResponseCustom handleNotFoundException(final EntityNotFoundException exception) {
         return new ErrorResponseCustom(exception.getMessage());
     }
 }
