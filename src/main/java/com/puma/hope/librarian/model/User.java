@@ -26,6 +26,7 @@ public class User {
     @NotEmpty(message = "Login may not be empty!")
     String login;
 
+    // if empty, name = login
     String name;
 
     @Past(message = "Birth date may not be in future!")
