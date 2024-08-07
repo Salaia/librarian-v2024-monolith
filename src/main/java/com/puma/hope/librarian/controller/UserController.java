@@ -1,5 +1,7 @@
 package com.puma.hope.librarian.controller;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -8,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import com.puma.hope.librarian.model.User;
 import com.puma.hope.librarian.service.UserService;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Positive;
 import java.util.*;
 
 @RestController

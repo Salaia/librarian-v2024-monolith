@@ -1,5 +1,6 @@
 package com.puma.hope.librarian.storage;
 
+import jakarta.validation.ValidationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Component;
 import com.puma.hope.librarian.exception.EntityNotFoundException;
 import com.puma.hope.librarian.model.User;
 
-import javax.validation.ValidationException;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
