@@ -29,11 +29,11 @@ public class Book {
     LocalDate releaseDate;
 
     @Positive(message = "Book duration has to be positive!")
-    int duration;
+    int duration; //TODO придумай название получше... вообще размер книги нужен, но не в страницах же...
 
     final LinkedHashSet<Genre> genres = new LinkedHashSet<>();
 
-    int rate;
+    int rate; //TODO рейтинг сделать бы расчетным, а то "книга хорошая, Админ сказал!"
 
     final Set<Long> likes = new HashSet<>();
 }

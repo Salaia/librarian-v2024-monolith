@@ -10,7 +10,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Genre {
     Long id;
-    String name;
+    String name; //TODO а где будет перечень, enum / data ?
 
     public Genre() {
     }
