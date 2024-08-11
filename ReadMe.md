@@ -12,7 +12,7 @@
 <img width="1024" alt="Friendly robot-cat at a library" src="assets/librarian_robo_cat_orig.jpg">
 </div>
 
-## API 
+## API (tested)
 * POST /users - создание пользователя
 * PUT /users - редактирование пользователя
 * GET /users - получение списка всех пользователей
