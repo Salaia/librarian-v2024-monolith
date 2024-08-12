@@ -36,7 +36,7 @@ public class GenreStorageImpl implements GenreStorage {
 
     @Override
     public void checkGenreExistence(Long id) {
-        final String sql = "select COUNT(g.genre_id), " +
+        final String sql = "select COUNT(g.genre_id) " +
                 "from librarian.genre as g " +
                 "where g.genre_id = ? ";
         Integer count = jdbcTemplate.queryForObject(sql, Integer.class, id);

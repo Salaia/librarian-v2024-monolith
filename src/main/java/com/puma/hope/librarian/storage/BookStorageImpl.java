@@ -27,7 +27,7 @@ public class BookStorageImpl implements BookStorage {
     @Override
     public Book create(Book book) throws ValidationExceptionCustom {
         final String sqlBook = "insert into librarian.books(name, description, release_date, duration, rate) " +
-                "values(?,?,?,?,?,?);";
+                "values(?,?,?,?,?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
@@ -37,7 +37,7 @@ public class BookStorageImpl implements BookStorage {
             stmt.setString(2, book.getDescription());
             stmt.setDate(3, Date.valueOf(book.getReleaseDate()));
             stmt.setInt(4, book.getDuration());
-            stmt.setInt(6, book.getRate());
+            stmt.setInt(5, book.getRate());
             return stmt;
         }, keyHolder);
 
@@ -61,7 +61,6 @@ public class BookStorageImpl implements BookStorage {
 
     @Override
     public Book update(Book book) {
-        // Апдейт самого фильма
         String sqlBookUpdate = "update librarian.books set name = ?, " +
                 "description = ?, release_date = ?, duration = ?, " +
                 "rate = ?" +
@@ -73,8 +72,8 @@ public class BookStorageImpl implements BookStorage {
             stmt.setString(2, book.getDescription());
             stmt.setDate(3, Date.valueOf(book.getReleaseDate()));
             stmt.setInt(4, book.getDuration());
-            stmt.setInt(6, book.getRate());
-            stmt.setLong(7, book.getId());
+            stmt.setInt(5, book.getRate());
+            stmt.setLong(6, book.getId());
             return stmt;
         });
 
@@ -104,16 +103,14 @@ public class BookStorageImpl implements BookStorage {
     public List<Book> findAllBooks() {
 
         final String sql = "select f.book_id, f.name as book_name, f.description, f.release_date, f.duration, " +
-                " json_arrayagg(json_object(" +
-                "  KEY 'id' VALUE g.genre_id," +
-                "  KEY 'name' VALUE g.name" +
-                ")) as genres, " +
+                "json_agg(json_build_object('id', g.genre_id, 'name', g.name)) as genres," +
                 " COUNT(lk.user_id) as rate " +
                 "from librarian.books as f " +
                 "left join librarian.books_genre_link as fgl on f.book_id = fgl.book_id " +
                 "left join librarian.genre as g on fgl.genre_id = g.genre_id " +
                 "left join librarian.likes_books_users_link as lk on lk.book_id = f.book_id " +
-                "group by f.book_id ";
+                "group by f.book_id " +
+                "order by f.book_id";
 
         return jdbcTemplate.query(sql, this::mapRowToBook);
     }
@@ -122,12 +119,8 @@ public class BookStorageImpl implements BookStorage {
     public Book findBookById(Long id) {
 
         final String sql = "select f.book_id, f.name as book_name, f.description, f.release_date, f.duration, " +
-                "json_arrayagg(json_object(" +
-                "  KEY 'id' VALUE g.genre_id," +
-                "  KEY 'name' VALUE g.name" +
-                ")) as genres, " +
+                "json_agg(json_build_object('id', g.genre_id, 'name', g.name)) as genres," +
                 " COUNT(lk.user_id) as rate " +
-                //" f.rate as rate " + // это неправильно - вводить руками популярность фильма, но в тесте Постман оно так
                 "from librarian.books as f " +
                 "left join librarian.books_genre_link as fgl on f.book_id = fgl.book_id " +
                 "left join librarian.genre as g on fgl.genre_id = g.genre_id " +
@@ -166,7 +159,7 @@ public class BookStorageImpl implements BookStorage {
 
     @Override
     public void checkBookExistence(Long id) {
-        final String sql = "select COUNT(f.book_id), " +
+        final String sql = "select COUNT(f.book_id) " +
                 "from librarian.books as f " +
                 "where f.book_id = ? ";
         Integer count = jdbcTemplate.queryForObject(sql, Integer.class, id);

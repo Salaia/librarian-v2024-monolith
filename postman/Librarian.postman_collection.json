@@ -2159,7 +2159,7 @@
 									"pm.test(\"Test book 'name' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('name');\r",
-									"    pm.expect(jsonData.name, '\"name\" must be \"Film Updated\"').to.eql('Film Updated');\r",
+									"    pm.expect(jsonData.name, '\"name\" must be \"Book Updated\"').to.eql('Book Updated');\r",
 									"});\r",
 									"pm.test(\"Test book 'description' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
@@ -2292,7 +2292,7 @@
 									"pm.test(\"Test book[0] 'name' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[0]).to.have.property('name');\r",
-									"    pm.expect(jsonData[0].name, '\"name\" must be \"Film Updated\"').to.eql('Film Updated');\r",
+									"    pm.expect(jsonData[0].name, '\"name\" must be \"Book Updated\"').to.eql('Book Updated');\r",
 									"});\r",
 									"pm.test(\"Test book[0] 'description' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
@@ -2366,7 +2366,7 @@
 									"pm.test(\"Test book[0] 'name' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[0]).to.have.property('name');\r",
-									"    pm.expect(jsonData[0].name, '\"name\" must be \"Book Updated\"').to.eql('Film Updated');\r",
+									"    pm.expect(jsonData[0].name, '\"name\" must be \"Book Updated\"').to.eql('Book Updated');\r",
 									"});\r",
 									"pm.test(\"Test book[0] 'description' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
@@ -2439,7 +2439,7 @@
 									"pm.test(\"Test book 'name' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('name');\r",
-									"    pm.expect(jsonData.name, '\"name\" must be \"New film\"').to.eql('New film');\r",
+									"    pm.expect(jsonData.name, '\"name\" must be \"New book\"').to.eql('New book');\r",
 									"});\r",
 									"pm.test(\"Test book 'description' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
@@ -2527,7 +2527,7 @@
 									"pm.test(\"Test book 'name' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('name');\r",
-									"    pm.expect(jsonData.name, '\"name\" must be \"Book Updated\"').to.eql('Film Updated');\r",
+									"    pm.expect(jsonData.name, '\"name\" must be \"Book Updated\"').to.eql('Book Updated');\r",
 									"});\r",
 									"pm.test(\"Test book 'description' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
@@ -2709,7 +2709,7 @@
 									"pm.test(\"Test book[0] 'name' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[0]).to.have.property('name');\r",
-									"    pm.expect(jsonData[0].name, '\"name\" must be \"New book\"').to.eql('New film');\r",
+									"    pm.expect(jsonData[0].name, '\"name\" must be \"New book\"').to.eql('New book');\r",
 									"});\r",
 									"pm.test(\"Test book[0] 'description' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
@@ -3338,7 +3338,7 @@
 									"pm.test(\"Test genre[2] 'name' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[2]).to.have.property('name');\r",
-									"    pm.expect(jsonData[2].name, '\"name\" must be \"Мультфильм\"').to.eql('Мультфильм');\r",
+									"    pm.expect(jsonData[2].name, '\"name\" must be \"Трагедия\"').to.eql('Трагедия');\r",
 									"});\r",
 									"pm.test(\"Test genre[3] 'id' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
@@ -3348,7 +3348,7 @@
 									"pm.test(\"Test genre[3] 'name' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[3]).to.have.property('name');\r",
-									"    pm.expect(jsonData[3].name, '\"name\" must be \"Триллер\"').to.eql('Триллер');\r",
+									"    pm.expect(jsonData[3].name, '\"name\" must be \"Театральные постановки\"').to.eql('Театральные постановки');\r",
 									"});\r",
 									"pm.test(\"Test genre[4] 'id' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
@@ -3358,7 +3358,7 @@
 									"pm.test(\"Test genre[4] 'name' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[4]).to.have.property('name');\r",
-									"    pm.expect(jsonData[4].name, '\"name\" must be \"Документальный\"').to.eql('Документальный');\r",
+									"    pm.expect(jsonData[4].name, '\"name\" must be \"Поэзия\"').to.eql('Поэзия');\r",
 									"});\r",
 									"pm.test(\"Test genre[5] 'id' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
@@ -3368,12 +3368,13 @@
 									"pm.test(\"Test genre[5] 'name' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[5]).to.have.property('name');\r",
-									"    pm.expect(jsonData[5].name, '\"name\" must be \"Боевик\"').to.eql('Боевик');\r",
+									"    pm.expect(jsonData[5].name, '\"name\" must be \"Учебная литература\"').to.eql('Учебная литература');\r",
 									"});\r",
 									"\r",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -3495,7 +3496,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": 1,\n  \"name\": \"Film Updated\",\n  \"releaseDate\": \"1989-04-17\",\n  \"description\": \"New film update decription\",\n  \"duration\": 190,\n  \"rate\": 4,\n  \"mpa\": { \"id\": 5},\n  \"genres\": [{ \"id\": 2}]\n}",
+							"raw": "{\n  \"id\": 1,\n  \"name\": \"Book Updated\",\n  \"releaseDate\": \"1989-04-17\",\n  \"description\": \"New book update decription\",\n  \"duration\": 190,\n  \"rate\": 4,\n  \"mpa\": { \"id\": 5},\n  \"genres\": [{ \"id\": 2}]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3924,7 +3925,7 @@
 									"    pm.expect(jsonData[0].duration, '\"duration\" field must be 190').to.eql(190);    \r",
 									"});\r",
 									"\r",
-									"pm.test(\"Test film[0] 'genres' field\", function () {\r",
+									"pm.test(\"Test book[0] 'genres' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[0]).to.have.property('genres');\r",
 									"    pm.expect(jsonData[0].genres.length, '\"genres\" field must be have 1 genre').to.eql(1);\r",
@@ -4205,7 +4206,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": 1,\n  \"name\": \"Film Updated\",\n  \"releaseDate\": \"1989-04-17\",\n  \"description\": \"New film update decription\",\n  \"duration\": 190,\n  \"rate\": 4,\n  \"mpa\": { \"id\": 5},\n  \"genres\": []\n}",
+							"raw": "{\n  \"id\": 1,\n  \"name\": \"Book Updated\",\n  \"releaseDate\": \"1989-04-17\",\n  \"description\": \"New book update decription\",\n  \"duration\": 190,\n  \"rate\": 4,\n  \"mpa\": { \"id\": 5},\n  \"genres\": []\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4639,7 +4640,7 @@
 									"    pm.expect(jsonData.genres[1]).to.have.property('id');\r",
 									"    pm.expect(jsonData.genres[1].id, '\"genres[1].id\" field must be 2').to.eql(2);\r",
 									"    pm.expect(jsonData.genres[2]).to.have.property('id');\r",
-									"    pm.expect(jsonData.genres[2].id, '\"genres[2].id\" field must be 3').to.eql(3);\r",
+									"    pm.expect(jsonData.genres[2].id, '\"genres[2].id\" field must be 4').to.eql(4);\r",
 									"});\r",
 									"\r",
 									"\r",
@@ -4664,7 +4665,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": 2,\n  \"name\": \"New film\",\n  \"releaseDate\": \"1999-04-30\",\n  \"description\": \"New film about friends\",\n  \"duration\": 120,\n  \"mpa\": { \"id\": 3},\n  \"genres\": [{ \"id\": 1}, { \"id\": 2}, { \"id\": 3}]\n}\n",
+							"raw": "{\n  \"id\": 2,\n  \"name\": \"New book\",\n  \"releaseDate\": \"1999-04-30\",\n  \"description\": \"New book about friends\",\n  \"duration\": 120,\n  \"mpa\": { \"id\": 3},\n  \"genres\": [{ \"id\": 1}, { \"id\": 2}, { \"id\": 4}]\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4880,9 +4881,9 @@
 									"    pm.expect(jsonData.genres[1]).to.have.property('name');\r",
 									"    pm.expect(jsonData.genres[1].name, '\"genres[1].name\" field must be \"Драма\"').to.eql('Драма');\r",
 									"    pm.expect(jsonData.genres[2]).to.have.property('id');\r",
-									"    pm.expect(jsonData.genres[2].id, '\"genres[2].id\" field must be 3').to.eql(3);\r",
+									"    pm.expect(jsonData.genres[2].id, '\"genres[2].id\" field must be 4').to.eql(4);\r",
 									"    pm.expect(jsonData.genres[2]).to.have.property('name');\r",
-									"    pm.expect(jsonData.genres[2].name, '\"genres[2].name\" field must be \"Мультфильм\"').to.eql('Мультфильм');\r",
+									"    pm.expect(jsonData.genres[2].name, '\"genres[2].name\" field must be \"Театральные постановки\"').to.eql('Театральные постановки');\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -5130,7 +5131,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": 2,\n  \"name\": \"New film\",\n  \"releaseDate\": \"1999-04-30\",\n  \"description\": \"New film about friends\",\n  \"duration\": 120,\n  \"mpa\": { \"id\": 3},\n  \"genres\": [{ \"id\": 1}, { \"id\": 2}, { \"id\": 1}]\n}\n",
+							"raw": "{\n  \"id\": 2,\n  \"name\": \"New book\",\n  \"releaseDate\": \"1999-04-30\",\n  \"description\": \"New book about friends\",\n  \"duration\": 120,\n  \"mpa\": { \"id\": 3},\n  \"genres\": [{ \"id\": 1}, { \"id\": 2}, { \"id\": 1}]\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
