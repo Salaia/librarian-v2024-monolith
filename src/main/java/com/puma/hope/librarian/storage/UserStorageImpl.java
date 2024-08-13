@@ -1,5 +1,6 @@
 package com.puma.hope.librarian.storage;
 
+import com.puma.hope.librarian.storage.face.UserStorage;
 import jakarta.validation.ValidationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -45,9 +46,9 @@ public class UserStorageImpl implements UserStorage {
 
     @Override
     public User update(User user) {
-        String sql = "update librarian.users set user_id = ?, email = ?, " +
+        String sql = "update librarian.users set email = ?, " +
                 "login = ?, name = ?, birthday = ?";
-        jdbcTemplate.update(sql, user.getId(), user.getEmail(),
+        jdbcTemplate.update(sql, user.getEmail(),
                 user.getLogin(), user.getName(), user.getBirthday());
         return findUserById(user.getId());
     }

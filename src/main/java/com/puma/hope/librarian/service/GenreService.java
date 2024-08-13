@@ -3,7 +3,7 @@ package com.puma.hope.librarian.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.puma.hope.librarian.model.Genre;
-import com.puma.hope.librarian.storage.GenreStorage;
+import com.puma.hope.librarian.storage.face.GenreStorage;
 
 import java.util.List;
 

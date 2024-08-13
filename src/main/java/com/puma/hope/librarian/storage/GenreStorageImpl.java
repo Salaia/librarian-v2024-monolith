@@ -1,6 +1,7 @@
 package com.puma.hope.librarian.storage;
 
 import com.puma.hope.librarian.exception.EntityNotFoundException;
+import com.puma.hope.librarian.storage.face.GenreStorage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;

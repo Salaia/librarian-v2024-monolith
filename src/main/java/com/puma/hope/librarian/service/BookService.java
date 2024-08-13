@@ -7,8 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import com.puma.hope.librarian.model.Book;
-import com.puma.hope.librarian.storage.BookStorage;
-import com.puma.hope.librarian.storage.UserStorage;
+import com.puma.hope.librarian.storage.face.BookStorage;
+import com.puma.hope.librarian.storage.face.UserStorage;
 
 import java.util.List;
 import java.util.stream.Collectors;

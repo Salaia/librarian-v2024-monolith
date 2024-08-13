@@ -28,8 +28,8 @@ public class Book {
 
     LocalDate releaseDate;
 
-    @Positive(message = "Book duration has to be positive!")
-    int duration; //TODO придумай название получше... вообще размер книги нужен, но не в страницах же...
+    @Positive(message = "Book numberOfPages has to be positive!")
+    int numberOfPages;
 
     final LinkedHashSet<Genre> genres = new LinkedHashSet<>();
 

@@ -3,6 +3,7 @@ package com.puma.hope.librarian.storage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.puma.hope.librarian.exception.EntityNotFoundException;
 import com.puma.hope.librarian.exception.ValidationExceptionCustom;
+import com.puma.hope.librarian.storage.face.BookStorage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -36,7 +37,7 @@ public class BookStorageImpl implements BookStorage {
             stmt.setString(1, book.getName());
             stmt.setString(2, book.getDescription());
             stmt.setDate(3, Date.valueOf(book.getReleaseDate()));
-            stmt.setInt(4, book.getDuration());
+            stmt.setInt(4, book.getNumberOfPages());
             stmt.setInt(5, book.getRate());
             return stmt;
         }, keyHolder);
@@ -71,7 +72,7 @@ public class BookStorageImpl implements BookStorage {
             stmt.setString(1, book.getName());
             stmt.setString(2, book.getDescription());
             stmt.setDate(3, Date.valueOf(book.getReleaseDate()));
-            stmt.setInt(4, book.getDuration());
+            stmt.setInt(4, book.getNumberOfPages());
             stmt.setInt(5, book.getRate());
             stmt.setLong(6, book.getId());
             return stmt;
@@ -174,7 +175,7 @@ public class BookStorageImpl implements BookStorage {
                 .name(resultSet.getString("book_name"))
                 .description(resultSet.getString("description"))
                 .releaseDate(resultSet.getDate("release_date").toLocalDate())
-                .duration(resultSet.getInt("duration"))
+                .numberOfPages(resultSet.getInt("duration"))
                 .rate(resultSet.getInt("rate"))
                 .build();
 

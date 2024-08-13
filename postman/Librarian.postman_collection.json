@@ -1930,10 +1930,10 @@
 									"    pm.expect(jsonData).to.have.property('releaseDate');\r",
 									"    pm.expect(jsonData.releaseDate, '\"releaseDate\" field must be \"1967-03-25\"').to.eql('1967-03-25');\r",
 									"});\r",
-									"pm.test(\"Test book 'duration' field\", function () {\r",
+									"pm.test(\"Test book 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.have.property('duration');\r",
-									"    pm.expect(jsonData.duration, '\"duration\" field must be 100').to.eql(100);    \r",
+									"    pm.expect(jsonData).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData.numberOfPages, '\"numberOfPages\" field must be 100').to.eql(100);    \r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1955,7 +1955,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"nisi eiusmod\",\n  \"description\": \"adipisicing\",\n  \"releaseDate\": \"1967-03-25\",\n  \"duration\": 100\n}",
+							"raw": "{\n  \"name\": \"nisi eiusmod\",\n  \"description\": \"adipisicing\",\n  \"releaseDate\": \"1967-03-25\",\n  \"numberOfPages\": 100\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2009,7 +2009,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"\",\n  \"description\": \"Description\",\n  \"releaseDate\": \"1900-03-25\",\n  \"duration\": 200\n}",
+							"raw": "{\n  \"name\": \"\",\n  \"description\": \"Description\",\n  \"releaseDate\": \"1900-03-25\",\n  \"numberOfPages\": 200\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2063,7 +2063,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Book name\",\n  \"description\": \"Пятеро друзей ( комик-группа «Шарло»), приезжают в город Бризуль. Здесь они хотят разыскать господина Огюста Куглова, который задолжал им деньги, а именно 20 миллионов. о Куглов, который за время «своего отсутствия», стал кандидатом Коломбани.\",\n    \"releaseDate\": \"1900-03-25\",\n  \"duration\": 200\n}",
+							"raw": "{\n  \"name\": \"Book name\",\n  \"description\": \"Пятеро друзей ( комик-группа «Шарло»), приезжают в город Бризуль. Здесь они хотят разыскать господина Огюста Куглова, который задолжал им деньги, а именно 20 миллионов. о Куглов, который за время «своего отсутствия», стал кандидатом Коломбани.\",\n    \"releaseDate\": \"1900-03-25\",\n  \"numberOfPages\": 200\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2117,7 +2117,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Name\",\n  \"description\": \"Descrition\",\n  \"releaseDate\": \"1980-03-25\",\n  \"duration\": -200\n  }",
+							"raw": "{\n  \"name\": \"Name\",\n  \"description\": \"Descrition\",\n  \"releaseDate\": \"1980-03-25\",\n  \"numberOfPages\": -200\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2171,10 +2171,10 @@
 									"    pm.expect(jsonData).to.have.property('releaseDate');\r",
 									"    pm.expect(jsonData.releaseDate, '\"releaseDate\" field must be \"1989-04-17\"').to.eql('1989-04-17');\r",
 									"});\r",
-									"pm.test(\"Test book 'duration' field\", function () {\r",
+									"pm.test(\"Test book 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.have.property('duration');\r",
-									"    pm.expect(jsonData.duration, '\"duration\" field must be 190').to.eql(190);    \r",
+									"    pm.expect(jsonData).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData.numberOfPages, '\"numberOfPages\" field must be 190').to.eql(190);    \r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -2196,7 +2196,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": 1,\n  \"name\": \"Book Updated\",\n  \"releaseDate\": \"1989-04-17\",\n  \"description\": \"New book update decription\",\n  \"duration\": 190,\n  \"rate\": 4\n}",
+							"raw": "{\n  \"id\": 1,\n  \"name\": \"Book Updated\",\n  \"releaseDate\": \"1989-04-17\",\n  \"description\": \"New book update decription\",\n  \"numberOfPages\": 190,\n  \"rate\": 4\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2249,7 +2249,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": 9999,\n  \"name\": \"Book Updated\",\n  \"releaseDate\": \"1989-04-17\",\n  \"description\": \"New book update decription\",\n  \"duration\": 190,\n  \"rate\": 4\n}",
+							"raw": "{\n  \"id\": 9999,\n  \"name\": \"Book Updated\",\n  \"releaseDate\": \"1989-04-17\",\n  \"description\": \"New book update decription\",\n  \"numberOfPages\": 190,\n  \"rate\": 4\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2303,10 +2303,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[0]).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book[0] 'duration' field\", function () {\r",
+									"pm.test(\"Test book[0] 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData[0]).to.have.property('duration');\r",
-									"    pm.expect(jsonData[0].duration, '\"duration\" field must be 190').to.eql(190);    \r",
+									"    pm.expect(jsonData[0]).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData[0].numberOfPages, '\"numberOfPages\" field must be 190').to.eql(190);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book[0] 'genres' field\", function () {\r",
@@ -2377,10 +2377,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[0]).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book[0] 'duration' field\", function () {\r",
+									"pm.test(\"Test book[0] 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData[0]).to.have.property('duration');\r",
-									"    pm.expect(jsonData[0].duration, '\"duration\" field must be 190').to.eql(190);    \r",
+									"    pm.expect(jsonData[0]).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData[0].numberOfPages, '\"numberOfPages\" field must be 190').to.eql(190);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book[0] 'genres' field\", function () {\r",
@@ -2450,10 +2450,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book 'duration' field\", function () {\r",
+									"pm.test(\"Test book 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.have.property('duration');\r",
-									"    pm.expect(jsonData.duration, '\"duration\" field must be 120').to.eql(120);    \r",
+									"    pm.expect(jsonData).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData.numberOfPages, '\"numberOfPages\" field must be 120').to.eql(120);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book 'genres' field\", function () {\r",
@@ -2486,7 +2486,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"New book\",\n  \"releaseDate\": \"1999-04-30\",\n  \"description\": \"New book about friends\",\n  \"duration\": 120,\n  \"rate\": 4,\n  \"genres\": [{ \"id\": 1}]\n}",
+							"raw": "{\n  \"name\": \"New book\",\n  \"releaseDate\": \"1999-04-30\",\n  \"description\": \"New book about friends\",\n  \"numberOfPages\": 120,\n  \"rate\": 4,\n  \"genres\": [{ \"id\": 1}]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2538,10 +2538,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book 'duration' field\", function () {\r",
+									"pm.test(\"Test book 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.have.property('duration');\r",
-									"    pm.expect(jsonData.duration, '\"duration\" field must be 190').to.eql(190);    \r",
+									"    pm.expect(jsonData).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData.numberOfPages, '\"numberOfPages\" field must be 190').to.eql(190);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book 'genres' field\", function () {\r",
@@ -2720,10 +2720,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[0]).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book[0] 'duration' field\", function () {\r",
+									"pm.test(\"Test book[0] 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData[0]).to.have.property('duration');\r",
-									"    pm.expect(jsonData[0].duration, '\"duration\" field must be 100').to.eql(120);    \r",
+									"    pm.expect(jsonData[0]).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData[0].numberOfPages, '\"numberOfPages\" field must be 100').to.eql(120);    \r",
 									"});\r",
 									""
 								],
@@ -3461,10 +3461,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book 'duration' field\", function () {\r",
+									"pm.test(\"Test book 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.have.property('duration');\r",
-									"    pm.expect(jsonData.duration, '\"duration\" field must be 190').to.eql(190);    \r",
+									"    pm.expect(jsonData).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData.numberOfPages, '\"numberOfPages\" field must be 190').to.eql(190);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book 'genres' field\", function () {\r",
@@ -3496,7 +3496,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": 1,\n  \"name\": \"Book Updated\",\n  \"releaseDate\": \"1989-04-17\",\n  \"description\": \"New book update decription\",\n  \"duration\": 190,\n  \"rate\": 4,\n  \"mpa\": { \"id\": 5},\n  \"genres\": [{ \"id\": 2}]\n}",
+							"raw": "{\n  \"id\": 1,\n  \"name\": \"Book Updated\",\n  \"releaseDate\": \"1989-04-17\",\n  \"description\": \"New book update decription\",\n  \"numberOfPages\": 190,\n  \"rate\": 4,\n  \"genres\": [{ \"id\": 2}]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3693,10 +3693,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book 'duration' field\", function () {\r",
+									"pm.test(\"Test book 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.have.property('duration');\r",
-									"    pm.expect(jsonData.duration, '\"duration\" field must be 190').to.eql(190);    \r",
+									"    pm.expect(jsonData).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData.numberOfPages, '\"numberOfPages\" field must be 190').to.eql(190);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book 'genres' field\", function () {\r",
@@ -3919,10 +3919,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[0]).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book[0] 'duration' field\", function () {\r",
+									"pm.test(\"Test book[0] 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData[0]).to.have.property('duration');\r",
-									"    pm.expect(jsonData[0].duration, '\"duration\" field must be 190').to.eql(190);    \r",
+									"    pm.expect(jsonData[0]).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData[0].numberOfPages, '\"numberOfPages\" field must be 190').to.eql(190);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book[0] 'genres' field\", function () {\r",
@@ -3954,10 +3954,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData[1]).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book[1] 'duration' field\", function () {\r",
+									"pm.test(\"Test book[1] 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData[1]).to.have.property('duration');\r",
-									"    pm.expect(jsonData[1].duration, '\"duration\" field must be 100').to.eql(120);    \r",
+									"    pm.expect(jsonData[1]).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData[1].numberOfPages, '\"numberOfPages\" field must be 100').to.eql(120);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book[1] 'genres' field\", function () {\r",
@@ -4173,10 +4173,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book 'duration' field\", function () {\r",
+									"pm.test(\"Test book 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.have.property('duration');\r",
-									"    pm.expect(jsonData.duration, '\"duration\" field must be 190').to.eql(190);    \r",
+									"    pm.expect(jsonData).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData.numberOfPages, '\"numberOfPages\" field must be 190').to.eql(190);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book 'genres' field\", function () {\r",
@@ -4206,7 +4206,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": 1,\n  \"name\": \"Book Updated\",\n  \"releaseDate\": \"1989-04-17\",\n  \"description\": \"New book update decription\",\n  \"duration\": 190,\n  \"rate\": 4,\n  \"mpa\": { \"id\": 5},\n  \"genres\": []\n}",
+							"raw": "{\n  \"id\": 1,\n  \"name\": \"Book Updated\",\n  \"releaseDate\": \"1989-04-17\",\n  \"description\": \"New book update decription\",\n  \"numberOfPages\": 190,\n  \"rate\": 4,\n  \"genres\": []\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4403,10 +4403,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book 'duration' field\", function () {\r",
+									"pm.test(\"Test book 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.have.property('duration');\r",
-									"    pm.expect(jsonData.duration, '\"duration\" field must be 190').to.eql(190);    \r",
+									"    pm.expect(jsonData).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData.numberOfPages, '\"numberOfPages\" field must be 190').to.eql(190);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book 'genres' field\", function () {\r",
@@ -4625,10 +4625,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book 'duration' field\", function () {\r",
+									"pm.test(\"Test book 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.have.property('duration');\r",
-									"    pm.expect(jsonData.duration, '\"duration\" field must be 100').to.eql(120);    \r",
+									"    pm.expect(jsonData).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData.numberOfPages, '\"numberOfPages\" field must be 100').to.eql(120);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book 'genres' field\", function () {\r",
@@ -4665,7 +4665,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": 2,\n  \"name\": \"New book\",\n  \"releaseDate\": \"1999-04-30\",\n  \"description\": \"New book about friends\",\n  \"duration\": 120,\n  \"mpa\": { \"id\": 3},\n  \"genres\": [{ \"id\": 1}, { \"id\": 2}, { \"id\": 4}]\n}\n",
+							"raw": "{\n  \"id\": 2,\n  \"name\": \"New book\",\n  \"releaseDate\": \"1999-04-30\",\n  \"description\": \"New book about friends\",\n  \"numberOfPages\": 120,\n  \"genres\": [{ \"id\": 1}, { \"id\": 2}, { \"id\": 4}]\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4862,10 +4862,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book 'duration' field\", function () {\r",
+									"pm.test(\"Test book 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.have.property('duration');\r",
-									"    pm.expect(jsonData.duration, '\"duration\" field must be 100').to.eql(120);    \r",
+									"    pm.expect(jsonData).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData.numberOfPages, '\"numberOfPages\" field must be 100').to.eql(120);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book 'genres' field\", function () {\r",
@@ -5093,10 +5093,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book 'duration' field\", function () {\r",
+									"pm.test(\"Test book 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.have.property('duration');\r",
-									"    pm.expect(jsonData.duration, '\"duration\" field must be 100').to.eql(120);    \r",
+									"    pm.expect(jsonData).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData.numberOfPages, '\"numberOfPages\" field must be 100').to.eql(120);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book 'genres' field\", function () {\r",
@@ -5131,7 +5131,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": 2,\n  \"name\": \"New book\",\n  \"releaseDate\": \"1999-04-30\",\n  \"description\": \"New book about friends\",\n  \"duration\": 120,\n  \"mpa\": { \"id\": 3},\n  \"genres\": [{ \"id\": 1}, { \"id\": 2}, { \"id\": 1}]\n}\n",
+							"raw": "{\n  \"id\": 2,\n  \"name\": \"New book\",\n  \"releaseDate\": \"1999-04-30\",\n  \"description\": \"New book about friends\",\n  \"numberOfPages\": 120,\n  \"genres\": [{ \"id\": 1}, { \"id\": 2}, { \"id\": 1}]\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5328,10 +5328,10 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData).to.have.property('releaseDate');\r",
 									"});\r",
-									"pm.test(\"Test book 'duration' field\", function () {\r",
+									"pm.test(\"Test book 'numberOfPages' field\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.have.property('duration');\r",
-									"    pm.expect(jsonData.duration, '\"duration\" field must be 100').to.eql(120);    \r",
+									"    pm.expect(jsonData).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData.numberOfPages, '\"numberOfPages\" field must be 100').to.eql(120);    \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Test book 'genres' field\", function () {\r",

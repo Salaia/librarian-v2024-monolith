@@ -1,4 +1,4 @@
-package com.puma.hope.librarian.storage;
+package com.puma.hope.librarian.storage.face;
 
 import com.puma.hope.librarian.model.Genre;
 

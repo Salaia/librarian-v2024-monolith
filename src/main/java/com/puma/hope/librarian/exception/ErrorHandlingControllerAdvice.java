@@ -54,4 +54,11 @@ public class ErrorHandlingControllerAdvice {
     public ErrorResponseCustom handleNotFoundException(final EntityNotFoundException exception) {
         return new ErrorResponseCustom(exception.getMessage());
     }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ErrorResponseCustom handleThrowable(final Throwable exception) {
+        return new ErrorResponseCustom(exception.getMessage()
+        );
+    }
 }
