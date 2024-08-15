@@ -74,4 +74,9 @@ public class BookService {
         bookStorage.checkBookExistence(id);
         return bookStorage.findBookById(id);
     }
+
+    public List<Book> getRecommendBooks(Long userId) {
+        userStorage.checkUserExistence(userId);
+        return bookStorage.getRecommendBooks(userId);
+    }
 }

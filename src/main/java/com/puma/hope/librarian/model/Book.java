@@ -34,6 +34,7 @@ public class Book {
     final LinkedHashSet<Genre> genres = new LinkedHashSet<>();
 
     int rate; //TODO рейтинг сделать бы расчетным, а то "книга хорошая, Админ сказал!"
+    // пока единственная мысль, как это сделать - ввести ДТО на вход(без рейтинга) и выход (с ним)
 
     final Set<Long> likes = new HashSet<>();
     final Set<Author> authors = new HashSet<>();

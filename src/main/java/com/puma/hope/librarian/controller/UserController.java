@@ -1,5 +1,7 @@
 package com.puma.hope.librarian.controller;
 
+import com.puma.hope.librarian.model.Book;
+import com.puma.hope.librarian.service.BookService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
 import lombok.AccessLevel;
@@ -19,6 +21,7 @@ import java.util.*;
 @RequestMapping("/users")
 public class UserController {
     UserService userService;
+    BookService bookService;
 
     @PostMapping
     public User create(@Valid @RequestBody User user) {
@@ -61,5 +64,10 @@ public class UserController {
     public List<User> findCommonFriends(@PathVariable("id") @Positive Long userId,
                                         @PathVariable("otherId") @Positive Long otherUserId) {
         return userService.findCommonFriends(userId, otherUserId);
+    }
+
+    @GetMapping("/{id}/recommendations")
+    public List<Book> recommendBooks(@PathVariable(value = "id") Long userId) {
+        return bookService.getRecommendBooks(userId);
     }
 }

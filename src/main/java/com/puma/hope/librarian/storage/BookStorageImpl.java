@@ -18,8 +18,10 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Component("bookStorageImpl")
 @RequiredArgsConstructor
@@ -206,6 +208,36 @@ public class BookStorageImpl implements BookStorage {
         if (count == null || count == 0) {
             throw new EntityNotFoundException("Book with id \"" + id + "\" not found.");
         }
+    }
+
+    @Override
+    public List<Book> getRecommendBooks(Long userId) {
+        String thisUserLikes = "select lk.book_id" +
+                " from librarian.likes_books_users_link as lk " +
+                " where lk.user_id = " + userId;
+        String usersWithSameLikes = "select user_id" +
+                " from librarian.likes_books_users_link" +
+                " where book_id in (" + thisUserLikes + ") and user_id != " + userId +
+                " group by user_id" +
+                " order by count(user_id) desc";
+        String recommendedBooksIds = "select book_id" +
+                " from librarian.likes_books_users_link" +
+                " where user_id in (" + usersWithSameLikes +
+                ") and book_id not in (" + thisUserLikes + ")";
+        String sql = "select f.book_id, f.name as book_name, f.description, f.release_date, f.number_of_pages, " +
+                " json_agg(json_build_object('id', g.genre_id, 'name', g.name)) as genres, " +
+                " COUNT(lk.user_id) as rate, " +
+                "json_agg(json_build_object('id', d.author_id, 'name', d.name)) as authors " +
+                "from librarian.books as f " +
+                "left join librarian.books_genre_link as fgl on f.book_id = fgl.book_id " +
+                "left join librarian.genre as g on fgl.genre_id = g.genre_id " +
+                "left join librarian.likes_books_users_link as lk on lk.book_id = f.book_id " +
+                "left join librarian.book_authors as fd on f.book_id = fd.book_id " +
+                "left join librarian.authors as d on fd.author_id = d.author_id " +
+                "where f.book_id in (" + recommendedBooksIds + ") " +
+                "group by f.book_id";
+        List<Book> books = jdbcTemplate.query(sql, this::mapRowToBook);
+        return books;
     }
 
     private Book mapRowToBook(ResultSet resultSet, int rowNum) throws SQLException {

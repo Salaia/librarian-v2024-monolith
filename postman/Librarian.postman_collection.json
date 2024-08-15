@@ -9562,6 +9562,1935 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Recommendations",
+			"item": [
+				{
+					"name": "User id=1 Get book recommendations if no likes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Test list book recommendations response\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'List length must be 0').to.eql(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/recommendations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId",
+								"recommendations"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Conflict",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Book  id=3 Add like from user id=1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,204]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/books/:id/like/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								":id",
+								"like",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3",
+									"description": "(Required) "
+								},
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id/friends/:friendId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id",
+										"friends",
+										":friendId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "friendId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id/friends/:friendId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id",
+										"friends",
+										":friendId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "friendId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Conflict",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id/friends/:friendId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id",
+										"friends",
+										":friendId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "friendId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id/friends/:friendId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id",
+										"friends",
+										":friendId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "friendId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "User id=1 Get book recommendations if no the same likes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Test list book recommendations response\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'List length must be 0').to.eql(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/recommendations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId",
+								"recommendations"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Conflict",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Book  id=3 Add like from user id=2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,204]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/books/:id/like/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								":id",
+								"like",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3",
+									"description": "(Required) "
+								},
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id/friends/:friendId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id",
+										"friends",
+										":friendId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "friendId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id/friends/:friendId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id",
+										"friends",
+										":friendId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "friendId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Conflict",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id/friends/:friendId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id",
+										"friends",
+										":friendId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "friendId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id/friends/:friendId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id",
+										"friends",
+										":friendId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "friendId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "User id=1 Get book recommendations  if the same likes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Test list book recommendations response\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'List length must be 0').to.eql(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/recommendations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId",
+								"recommendations"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Conflict",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Book  id=2 Add like from user id=2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,204]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/books/:id/like/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								":id",
+								"like",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "(Required) "
+								},
+								{
+									"key": "userId",
+									"value": "2",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/:id/like/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										":id",
+										"like",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "userId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/:id/like/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										":id",
+										"like",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "userId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Conflict",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/:id/like/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										":id",
+										"like",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "userId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/:id/like/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										":id",
+										"like",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "userId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "User id=1 Get book recommendations  from user id=2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Test list book recommendations response\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'List length must be 1').to.eql(1);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test book[0] 'id' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property('id');\r",
+									"    pm.expect(jsonData[0].id, '\"id\" must be 2').to.eql(2);\r",
+									"});\r",
+									"pm.test(\"Test book[0] 'name' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property('name');\r",
+									"    pm.expect(jsonData[0].name, '\"name\" must be \"New book\"').to.eql('New book');\r",
+									"});\r",
+									"pm.test(\"Test book[0] 'description' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property('description');\r",
+									"    pm.expect(jsonData[0].description, '\"description\" must be \"New book about friends\"').to.eql('New book about friends');\r",
+									"});\r",
+									"pm.test(\"Test book[0] 'releaseDate' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property('releaseDate');\r",
+									"    pm.expect(jsonData[0].releaseDate, '\"releaseDate\" field must be \"1999-04-30\"').to.eql('1999-04-30');\r",
+									"});\r",
+									"pm.test(\"Test book[0] 'numberOfPages' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData[0].numberOfPages, '\"numberOfPages\" field must be 100').to.eql(120);    \r",
+									"});\r",
+									"pm.test(\"Test book[0] 'genres' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property('genres');\r",
+									"    pm.expect(jsonData[0].genres.length, '\"genres\" field must be have 2 genre').to.eql(2);\r",
+									"    pm.expect(jsonData[0].genres[0]).to.have.property('id');\r",
+									"    pm.expect(jsonData[0].genres[0].id, '\"genres[0].id\" field must be 1').to.eql(1);    \r",
+									"    pm.expect(jsonData[0].genres[0]).to.have.property('name');\r",
+									"    pm.expect(jsonData[0].genres[0].name, '\"genres[0].name\" field must be \"Комедия\"').to.eql('Комедия');\r",
+									"    pm.expect(jsonData[0].genres[1]).to.have.property('id');\r",
+									"    pm.expect(jsonData[0].genres[1].id, '\"genres[1].id\" field must be 2').to.eql(2);\r",
+									"    pm.expect(jsonData[0].genres[1]).to.have.property('name');\r",
+									"    pm.expect(jsonData[0].genres[1].name, '\"genres[1].name\" field must be \"Драма\"').to.eql('Драма');\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/recommendations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId",
+								"recommendations"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Conflict",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "User id=2 Get book recommendations  if the same likes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Test list book recommendations response\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'List length must be 0').to.eql(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/recommendations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId",
+								"recommendations"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Conflict",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Book  id=1 Add like from user id=1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,204]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/books/:id/like/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								":id",
+								"like",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "(Required) "
+								},
+								{
+									"key": "userId",
+									"value": "1",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/:id/like/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										":id",
+										"like",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "userId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/:id/like/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										":id",
+										"like",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "userId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Conflict",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/:id/like/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										":id",
+										"like",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "userId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/:id/like/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										":id",
+										"like",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-29029902",
+											"description": "(Required) "
+										},
+										{
+											"key": "userId",
+											"value": "-29029902",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "User id=2 Get book recommendations  from user id=1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Test list book recommendations response\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'List length must be 1').to.eql(1);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Test book[0] 'id' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property('id');\r",
+									"    pm.expect(jsonData[0].id, '\"id\" must be 1').to.eql(1);\r",
+									"});\r",
+									"pm.test(\"Test book[0] 'name' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property('name');\r",
+									"    pm.expect(jsonData[0].name, '\"name\" must be \"Book Updated\"').to.eql('Book Updated');\r",
+									"});\r",
+									"pm.test(\"Test book[0] 'description' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property('description');\r",
+									"    pm.expect(jsonData[0].description, '\"description\" must be \"New book update decription\"').to.eql('New book update decription');\r",
+									"});\r",
+									"pm.test(\"Test book[0] 'releaseDate' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property('releaseDate');\r",
+									"    pm.expect(jsonData[0].releaseDate, '\"releaseDate\" field must be \"1989-04-17\"').to.eql('1989-04-17');\r",
+									"});\r",
+									"pm.test(\"Test book[0] 'numberOfPages' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property('numberOfPages');\r",
+									"    pm.expect(jsonData[0].numberOfPages, '\"numberOfPages\" field must be 190').to.eql(190);    \r",
+									"});\r",
+									"pm.test(\"Test book[0] 'genres' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property('genres');\r",
+									"    if (jsonData[0].genres != null) {\r",
+									"        pm.expect(jsonData[0].genres.length, '\"genres\" field must be have 0 genre').to.eql(0);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/recommendations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId",
+								"recommendations"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Conflict",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/books/popular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"books",
+										"popular"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
 		}
 	],
 	"variable": [

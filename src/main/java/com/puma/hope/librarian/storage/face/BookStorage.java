@@ -19,4 +19,6 @@ public interface BookStorage {
 
     void checkBookExistence(Long id);
 
+    List<Book> getRecommendBooks(Long userId);
+
 }
