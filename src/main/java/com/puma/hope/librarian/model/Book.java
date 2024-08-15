@@ -36,4 +36,6 @@ public class Book {
     int rate; //TODO рейтинг сделать бы расчетным, а то "книга хорошая, Админ сказал!"
 
     final Set<Long> likes = new HashSet<>();
+    final Set<Author> authors = new HashSet<>();
+
 }

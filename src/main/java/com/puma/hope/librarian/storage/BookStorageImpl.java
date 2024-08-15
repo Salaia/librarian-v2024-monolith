@@ -3,6 +3,7 @@ package com.puma.hope.librarian.storage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.puma.hope.librarian.exception.EntityNotFoundException;
 import com.puma.hope.librarian.exception.ValidationExceptionCustom;
+import com.puma.hope.librarian.model.Author;
 import com.puma.hope.librarian.storage.face.BookStorage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,7 +28,7 @@ public class BookStorageImpl implements BookStorage {
 
     @Override
     public Book create(Book book) throws ValidationExceptionCustom {
-        final String sqlBook = "insert into librarian.books(name, description, release_date, duration, rate) " +
+        final String sqlBook = "insert into librarian.books(name, description, release_date, number_of_pages, rate) " +
                 "values(?,?,?,?,?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -57,13 +58,26 @@ public class BookStorageImpl implements BookStorage {
                 });
             }
         }
+
+        if (!book.getAuthors().isEmpty()) {
+            for (Author author : book.getAuthors()) {
+                final String sqlAuthors = "insert into librarian.book_authors (book_id, author_id) values (?, ?)";
+                jdbcTemplate.update(connection -> {
+                    PreparedStatement stmt = connection.prepareStatement((sqlAuthors));
+                    stmt.setInt(1, key.intValue());
+                    stmt.setInt(2, author.getId().intValue());
+                    return stmt;
+                });
+            }
+        }
+        
         return findBookById(key);
     }
 
     @Override
     public Book update(Book book) {
         String sqlBookUpdate = "update librarian.books set name = ?, " +
-                "description = ?, release_date = ?, duration = ?, " +
+                "description = ?, release_date = ?, number_of_pages = ?, " +
                 "rate = ?" +
                 " where book_id = ?";
 
@@ -97,19 +111,41 @@ public class BookStorageImpl implements BookStorage {
                 });
             }
         }
+        
+        // delete authors
+        final String sqlAuthorsDelete = "delete from librarian.book_authors " +
+                "where book_id = " + book.getId();
+        jdbcTemplate.update(sqlAuthorsDelete);
+
+        // insert authors
+        if (!book.getAuthors().isEmpty()) {
+            for (Author author : book.getAuthors()) {
+                final String sqlAuthors = "insert into librarian.book_authors (book_id, author_id) values (?, ?)";
+                jdbcTemplate.update(connection -> {
+                    PreparedStatement stmt = connection.prepareStatement((sqlAuthors));
+                    stmt.setInt(1, book.getId().intValue());
+                    stmt.setInt(2, author.getId().intValue());
+                    return stmt;
+                });
+            }
+        }
+        
         return findBookById(book.getId());
     }
 
     @Override
     public List<Book> findAllBooks() {
 
-        final String sql = "select f.book_id, f.name as book_name, f.description, f.release_date, f.duration, " +
+        final String sql = "select f.book_id, f.name as book_name, f.description, f.release_date, f.number_of_pages, " +
                 "json_agg(json_build_object('id', g.genre_id, 'name', g.name)) as genres," +
-                " COUNT(lk.user_id) as rate " +
+                " COUNT(lk.user_id) as rate, " +
+                "json_agg(json_build_object('id', d.author_id, 'name', d.name)) as authors " +
                 "from librarian.books as f " +
                 "left join librarian.books_genre_link as fgl on f.book_id = fgl.book_id " +
                 "left join librarian.genre as g on fgl.genre_id = g.genre_id " +
                 "left join librarian.likes_books_users_link as lk on lk.book_id = f.book_id " +
+                "left join librarian.book_authors as fd on f.book_id = fd.book_id " +
+                "left join librarian.authors as d on fd.author_id = d.author_id " +
                 "group by f.book_id " +
                 "order by f.book_id";
 
@@ -119,13 +155,16 @@ public class BookStorageImpl implements BookStorage {
     @Override
     public Book findBookById(Long id) {
 
-        final String sql = "select f.book_id, f.name as book_name, f.description, f.release_date, f.duration, " +
+        final String sql = "select f.book_id, f.name as book_name, f.description, f.release_date, f.number_of_pages, " +
                 "json_agg(json_build_object('id', g.genre_id, 'name', g.name)) as genres," +
-                " COUNT(lk.user_id) as rate " +
+                " COUNT(lk.user_id) as rate, " +
+                "json_agg(json_build_object('id', d.author_id, 'name', d.name)) as authors " +
                 "from librarian.books as f " +
                 "left join librarian.books_genre_link as fgl on f.book_id = fgl.book_id " +
                 "left join librarian.genre as g on fgl.genre_id = g.genre_id " +
                 "left join librarian.likes_books_users_link as lk on lk.book_id = f.book_id " +
+                "left join librarian.book_authors as fd on f.book_id = fd.book_id " +
+                "left join librarian.authors as d on fd.author_id = d.author_id " +
                 "where f.book_id = ? " +
                 "group by f.book_id ";
 
@@ -175,7 +214,7 @@ public class BookStorageImpl implements BookStorage {
                 .name(resultSet.getString("book_name"))
                 .description(resultSet.getString("description"))
                 .releaseDate(resultSet.getDate("release_date").toLocalDate())
-                .numberOfPages(resultSet.getInt("duration"))
+                .numberOfPages(resultSet.getInt("number_of_pages"))
                 .rate(resultSet.getInt("rate"))
                 .build();
 
@@ -194,6 +233,23 @@ public class BookStorageImpl implements BookStorage {
                     book.getGenres().add(genre);
             }
         }
+
+        String authorsString = resultSet.getString("authors");
+
+        final ObjectMapper authorMapper = new ObjectMapper();
+        Author[] authors = new Author[10];
+        try {
+            authors = authorMapper.readValue(authorsString, Author[].class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (Author author : authors) {
+            if (author != null) {
+                if (author.getId() != null)
+                    book.getAuthors().add(author);
+            }
+        }
+        
         return book;
     }
 

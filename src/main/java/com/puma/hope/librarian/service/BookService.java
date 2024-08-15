@@ -61,7 +61,7 @@ public class BookService {
     }
 
     public Book update(Book book) {
-        bookStorage.checkBookExistence(book.getId()); // NotFoundException
+        bookStorage.checkBookExistence(book.getId());
         log.info("Book " + book.getName() + " was successfully updated!");
         return bookStorage.update(book);
     }
