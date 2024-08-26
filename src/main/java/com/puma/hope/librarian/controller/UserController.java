@@ -2,6 +2,8 @@ package com.puma.hope.librarian.controller;
 
 import com.puma.hope.librarian.model.Book;
 import com.puma.hope.librarian.service.BookService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
 import lombok.AccessLevel;
@@ -15,6 +17,7 @@ import com.puma.hope.librarian.service.UserService;
 import java.util.*;
 
 @RestController
+@Tag(name = "Users", description = "Requests for users")
 @Validated
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -24,6 +27,7 @@ public class UserController {
     BookService bookService;
 
     @PostMapping
+    @Operation(summary = "Create user")
     public User create(@Valid @RequestBody User user) {
         return userService.create(user);
     }
