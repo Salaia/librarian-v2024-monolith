@@ -15,7 +15,10 @@
 </div>
 
 ## API (Swagger)
-Два пути посмотреть API:
+Три пути посмотреть API:
+* прямая ссылка на SwaggerHub(на 2024.08.28 открывается без VPN) https://app.swaggerhub.com/apis-docs/lessera/Librarian/v0#/
+
+ИЛИ
 * Перейти на сайт https://editor-next.swagger.io
 * импортировать файл documentation/SwaggerAPI.json
 * Он же, но ссылка на GitHub: https://github.com/Salaia/librarian/blob/master/documentation/SwaggerAPI.json
