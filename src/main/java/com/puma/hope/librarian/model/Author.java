@@ -1,6 +1,7 @@
 package com.puma.hope.librarian.model;
 
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -16,11 +17,13 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Author {
     @Positive
+    @Schema(example = "1")
     Long id;
 
     @NotBlank(message = "Field \"name\" can't consist of space symbols.")
     @NotEmpty(message = "Field \"name\" can't be empty.")
     @NotNull(message = "Field \"name\" can't be null.")
+    @Schema(example = "Hope Heavens")
     String name;
 
 

@@ -1,6 +1,6 @@
 # TODO
 * Добавить обзоры (лайки это хорошо, но обзоры информативнее)
-* Swagger теперь будет жить с нами, но стоит добавить его аннотаций для красоты
+* И все же, а что если добавить модуль на Хайбернейте?
 
 # Librarian 📚
 
@@ -18,6 +18,7 @@
 Два пути посмотреть API:
 * Перейти на сайт https://editor-next.swagger.io
 * импортировать файл documentation/SwaggerAPI.json
+* Он же, но ссылка на GitHub: https://github.com/Salaia/librarian/blob/master/documentation/SwaggerAPI.json
 
 ИЛИ
 * Во время работы проекта API доступно по ссылке:
@@ -32,6 +33,7 @@ http://localhost:8080/swagger-ui/index.html
     <img src="https://github.com/Salaia/icons/blob/main/green/JDBC.png?raw=true" title="JDBC" alt="JDBC" height="40"/>
 <img src="https://github.com/Salaia/icons/blob/main/green/PostgreSQL.png?raw=true" title="PostgreSQL" alt="PostgreSQL" height="40"/>
 <img src="https://github.com/Salaia/icons/blob/main/green/Postman.png?raw=true" title="Postman" alt="Postman" height="40"/>
+<img src="https://github.com/Salaia/icons/blob/main/green/Swagger.png?raw=true" title="Swagger" alt="Swagger" height="40"/>
 </div>
 
 ## Testing

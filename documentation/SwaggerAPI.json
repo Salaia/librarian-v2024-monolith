@@ -14,6 +14,18 @@
     {
       "name": "Users",
       "description": "Requests for users"
+    },
+    {
+      "name": "Books",
+      "description": "Requests for books"
+    },
+    {
+      "name": "Genres",
+      "description": "Requests for genres"
+    },
+    {
+      "name": "Authors",
+      "description": "Requests for authors"
     }
   ],
   "paths": {
@@ -22,8 +34,19 @@
         "tags": [
           "Users"
         ],
+        "summary": "Find all users",
         "operationId": "findAll",
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -31,7 +54,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -43,16 +66,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -80,6 +93,7 @@
         "tags": [
           "Users"
         ],
+        "summary": "Update a user",
         "operationId": "update",
         "requestBody": {
           "content": {
@@ -92,6 +106,16 @@
           "required": true
         },
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -99,7 +123,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -111,16 +135,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -158,6 +172,16 @@
           "required": true
         },
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -165,7 +189,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -177,16 +201,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -213,6 +227,7 @@
         "tags": [
           "Users"
         ],
+        "summary": "Add a new friend",
         "operationId": "addFriend",
         "parameters": [
           {
@@ -235,6 +250,16 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -242,7 +267,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -254,16 +279,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -288,6 +303,7 @@
         "tags": [
           "Users"
         ],
+        "summary": "Remove from friends list",
         "operationId": "removeFriend",
         "parameters": [
           {
@@ -310,6 +326,16 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -317,7 +343,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -329,16 +355,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -363,10 +379,21 @@
     "/books": {
       "get": {
         "tags": [
-          "book-controller"
+          "Books"
         ],
+        "summary": "Get all books",
         "operationId": "findAllBooks",
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -374,7 +401,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -386,16 +413,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -421,8 +438,9 @@
       },
       "put": {
         "tags": [
-          "book-controller"
+          "Books"
         ],
+        "summary": "Update a book",
         "operationId": "update_1",
         "requestBody": {
           "content": {
@@ -435,6 +453,16 @@
           "required": true
         },
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -442,7 +470,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -454,16 +482,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -486,8 +504,9 @@
       },
       "post": {
         "tags": [
-          "book-controller"
+          "Books"
         ],
+        "summary": "Add a new book to the DataBase",
         "operationId": "create_1",
         "requestBody": {
           "content": {
@@ -500,6 +519,16 @@
           "required": true
         },
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -507,7 +536,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -519,16 +548,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -553,8 +572,9 @@
     "/books/{id}/like/{userId}": {
       "put": {
         "tags": [
-          "book-controller"
+          "Books"
         ],
+        "summary": "Add like to the book (using book ID and user ID",
         "operationId": "addLike",
         "parameters": [
           {
@@ -577,6 +597,16 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -584,7 +614,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -596,16 +626,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -628,8 +648,9 @@
       },
       "delete": {
         "tags": [
-          "book-controller"
+          "Books"
         ],
+        "summary": "Remove like from the book (using book ID and user ID",
         "operationId": "removeLike",
         "parameters": [
           {
@@ -652,6 +673,16 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -659,7 +690,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -671,16 +702,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -705,10 +726,21 @@
     "/authors": {
       "get": {
         "tags": [
-          "author-controller"
+          "Authors"
         ],
+        "summary": "Get all authors",
         "operationId": "getAuthors",
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -716,7 +748,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -728,16 +760,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -763,8 +785,9 @@
       },
       "put": {
         "tags": [
-          "author-controller"
+          "Authors"
         ],
+        "summary": "Update author",
         "operationId": "updateAuthor",
         "requestBody": {
           "content": {
@@ -777,6 +800,16 @@
           "required": true
         },
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -784,7 +817,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -796,16 +829,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -828,8 +851,9 @@
       },
       "post": {
         "tags": [
-          "author-controller"
+          "Authors"
         ],
+        "summary": "Add a new author to the DataBase",
         "operationId": "addAuthor",
         "requestBody": {
           "content": {
@@ -842,6 +866,16 @@
           "required": true
         },
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -849,7 +883,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -861,16 +895,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -897,6 +921,7 @@
         "tags": [
           "Users"
         ],
+        "summary": "Get a user by ID",
         "operationId": "findUserById",
         "parameters": [
           {
@@ -910,25 +935,8 @@
           }
         ],
         "responses": {
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
+          "500": {
+            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -937,8 +945,18 @@
               }
             }
           },
-          "500": {
-            "description": "Internal Server Error",
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
             "content": {
               "*/*": {
                 "schema": {
@@ -965,6 +983,7 @@
         "tags": [
           "Users"
         ],
+        "summary": "Recommend books by comparing user's likes to friend's likes",
         "operationId": "recommendBooks",
         "parameters": [
           {
@@ -978,6 +997,16 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -985,7 +1014,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -997,16 +1026,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -1036,6 +1055,7 @@
         "tags": [
           "Users"
         ],
+        "summary": "Find user's friends",
         "operationId": "findFriends",
         "parameters": [
           {
@@ -1049,6 +1069,16 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -1056,7 +1086,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -1068,16 +1098,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -1107,6 +1127,7 @@
         "tags": [
           "Users"
         ],
+        "summary": "Find common friends for two users",
         "operationId": "findCommonFriends",
         "parameters": [
           {
@@ -1129,6 +1150,16 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -1136,7 +1167,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -1148,16 +1179,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -1185,10 +1206,21 @@
     "/genres": {
       "get": {
         "tags": [
-          "genre-controller"
+          "Genres"
         ],
+        "summary": "Get all genres",
         "operationId": "findAll_1",
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -1196,7 +1228,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -1208,16 +1240,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -1245,8 +1267,9 @@
     "/genres/{id}": {
       "get": {
         "tags": [
-          "genre-controller"
+          "Genres"
         ],
+        "summary": "Get a genre by ID",
         "operationId": "findGenreById",
         "parameters": [
           {
@@ -1260,6 +1283,16 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -1267,7 +1300,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -1279,16 +1312,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -1313,8 +1336,9 @@
     "/books/{id}": {
       "get": {
         "tags": [
-          "book-controller"
+          "Books"
         ],
+        "summary": "Get a book by ID",
         "operationId": "findBookById",
         "parameters": [
           {
@@ -1328,6 +1352,16 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -1335,7 +1369,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -1347,16 +1381,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -1381,8 +1405,9 @@
     "/books/popular": {
       "get": {
         "tags": [
-          "book-controller"
+          "Books"
         ],
+        "summary": "Get most popular books. Returns 10 if other isn't specified",
         "operationId": "findPopularBooks",
         "parameters": [
           {
@@ -1398,6 +1423,16 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -1405,7 +1440,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -1417,16 +1452,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -1454,8 +1479,9 @@
     "/authors/{id}": {
       "get": {
         "tags": [
-          "author-controller"
+          "Authors"
         ],
+        "summary": "Get an author by ID",
         "operationId": "getAuthorById",
         "parameters": [
           {
@@ -1469,6 +1495,16 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -1476,7 +1512,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -1488,16 +1524,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -1520,8 +1546,9 @@
       },
       "delete": {
         "tags": [
-          "author-controller"
+          "Authors"
         ],
+        "summary": "Delete an author from the DataBase by author's ID",
         "operationId": "deleteAuthor",
         "parameters": [
           {
@@ -1535,6 +1562,16 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseCustom"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -1542,7 +1579,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponse"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     },
                     {
                       "$ref": "#/components/schemas/ErrorResponseCustom"
@@ -1554,16 +1591,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseCustom"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -1589,6 +1616,28 @@
           }
         }
       },
+      "ValidationErrorResponseCustom": {
+        "type": "object",
+        "properties": {
+          "violations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Violation"
+            }
+          }
+        }
+      },
+      "Violation": {
+        "type": "object",
+        "properties": {
+          "fieldName": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
       "User": {
         "required": [
           "login",
@@ -1598,21 +1647,30 @@
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int64"
+            "description": "User ID, generated by the DataBase",
+            "format": "int64",
+            "example": 1
           },
           "email": {
-            "type": "string"
+            "type": "string",
+            "example": "nickname@mail.com"
           },
           "login": {
             "pattern": "[^ ]*",
-            "type": "string"
+            "type": "string",
+            "description": "Login may not be empty and may not contain space symbols",
+            "example": "YourNickname"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Displayed name. May not be empty",
+            "example": "Firstname Lastname"
           },
           "birthday": {
             "type": "string",
-            "format": "date"
+            "description": "Birthday may not be in future. Date format: YYYY-MM-DD",
+            "format": "date",
+            "example": "1946-08-20"
           },
           "friendsIds": {
             "uniqueItems": true,
@@ -1632,10 +1690,12 @@
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 1
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "example": "Hope Heavens"
           }
         }
       },
@@ -1647,23 +1707,29 @@
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 1
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Book name may not be empty or blank",
+            "example": "Poetriana"
           },
           "description": {
             "maxLength": 200,
             "minLength": 0,
-            "type": "string"
+            "type": "string",
+            "example": "My own poetry book"
           },
           "releaseDate": {
             "type": "string",
-            "format": "date"
+            "format": "date",
+            "example": "2007-05-27"
           },
           "numberOfPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 100
           },
           "genres": {
             "type": "array",
@@ -1697,10 +1763,12 @@
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 1
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "example": "ÐŸÐ¾ÑÐ·Ð¸Ñ"
           }
         }
       }
