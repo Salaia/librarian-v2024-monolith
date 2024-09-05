@@ -14,7 +14,7 @@
 
 ## API (Swagger)
 Три пути посмотреть API:
-* прямая ссылка на SwaggerHub(на 2024.08.28 открывается без VPN) https://app.swaggerhub.com/apis-docs/lessera/Librarian/v0#/
+* прямая ссылка на SwaggerHub(на 2024.09.05 открывается без VPN) https://app.swaggerhub.com/apis-docs/lessera/Librarian/v1#/
 
 ИЛИ
 * Перейти на сайт https://editor-next.swagger.io
@@ -23,7 +23,15 @@
 
 ИЛИ
 * Во время работы проекта API доступно по ссылке:
-http://localhost:8080/swagger-ui/index.html
+http://localhost:8182/swagger-ui/index.html
+
+## Инструкция по развёртыванию ▶️
+1) Склонируйте репозиторий: https://github.com/Salaia/librarian-v2024-monolith.git
+2) Откройте программу Docker
+3) В терминале или командной строке перейдите в папку проекта (где лежит файл docker-compose.yml) и выполните команду: docker-compose up
+4) В программе Docker должны появиться 2 контейнера
+5) Программа доступна по ниже описанному API по адресу: http://localhost:8182
+6) Можно импортировать и гонять тесты Postman :)
 
 ## 🛠 Tech & Tools
 
@@ -33,6 +41,7 @@ http://localhost:8080/swagger-ui/index.html
       <img src="https://github.com/Salaia/icons/blob/main/green/Maven.png?raw=true" title="Apache Maven" alt="Apache Maven" height="40"/>
     <img src="https://github.com/Salaia/icons/blob/main/green/JDBC.png?raw=true" title="JDBC" alt="JDBC" height="40"/>
 <img src="https://github.com/Salaia/icons/blob/main/green/PostgreSQL.png?raw=true" title="PostgreSQL" alt="PostgreSQL" height="40"/>
+<img src="https://github.com/Salaia/icons/blob/main/green/Docker.png?raw=true" title="Docker" alt="Docker" height="40"/>
 <img src="https://github.com/Salaia/icons/blob/main/green/Postman.png?raw=true" title="Postman" alt="Postman" height="40"/>
 <img src="https://github.com/Salaia/icons/blob/main/green/Swagger.png?raw=true" title="Swagger" alt="Swagger" height="40"/>
 </div>

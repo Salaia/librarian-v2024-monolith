@@ -1,9 +1,9 @@
 version: '3.8'
 services:
-  librarianmon:
-    build: librarianmon
-    image: librarian-monolith-image
-    container_name: librarian-monolith
+  libserv:
+    build: libserv
+    image: libserv-image
+    container_name: libserv
     ports:
       - "8182:8182"
     depends_on:

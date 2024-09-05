@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8080",
+      "url": "http://localhost:8182",
       "description": "Generated server url"
     }
   ],
@@ -54,10 +54,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -123,10 +123,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -189,10 +189,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -267,10 +267,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -343,10 +343,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -401,10 +401,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -470,10 +470,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -536,10 +536,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -614,10 +614,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -690,10 +690,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -748,10 +748,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -817,10 +817,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -883,10 +883,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -1014,10 +1014,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -1086,10 +1086,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -1167,10 +1167,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -1228,10 +1228,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -1300,10 +1300,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -1369,10 +1369,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -1440,10 +1440,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -1512,10 +1512,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }
@@ -1579,10 +1579,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
+                      "$ref": "#/components/schemas/ErrorResponseCustom"
                     },
                     {
-                      "$ref": "#/components/schemas/ErrorResponseCustom"
+                      "$ref": "#/components/schemas/ValidationErrorResponseCustom"
                     }
                   ]
                 }

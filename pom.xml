@@ -11,6 +11,7 @@
 	<groupId>com.puma.hope</groupId>
 	<artifactId>librarianmon</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>librarian</name>
 	<description>Project of an on-line platform for  getting recommendations and sharing experience from reading</description>
 	<url/>
@@ -20,6 +21,9 @@
 	<developers>
 		<developer/>
 	</developers>
+	<modules>
+		<module>libserv</module>
+	</modules>
 	<scm>
 		<connection/>
 		<developerConnection/>
