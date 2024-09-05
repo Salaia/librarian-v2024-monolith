@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  librarianmon:
+    build: librarianmon
+    image: librarian-monolith-image
+    container_name: librarian-monolith
+    ports:
+      - "8182:8182"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/librarian
+
+  db:
+    image: postgres:13.7-alpine
+    volumes:
+      - /var/lib/postgresql/data/
+    container_name: db_postgres
+    ports:
+      - "6541:5432"
+    environment:
+      - POSTGRES_DB=librarian
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=iamroot

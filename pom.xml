@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.puma.hope</groupId>
-	<artifactId>librarian</artifactId>
+	<artifactId>librarianmon</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>librarian</name>
 	<description>Project of an on-line platform for  getting recommendations and sharing experience from reading</description>
